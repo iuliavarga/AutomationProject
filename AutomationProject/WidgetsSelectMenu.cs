@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using static OpenQA.Selenium.BiDi.Modules.BrowsingContext.Locator;
 
 namespace AutomationProject
@@ -55,16 +56,29 @@ namespace AutomationProject
             selectOldStyleMenu.Click();
 
 
-           
-           IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//div[@class=' css-1hwfws3']"));
-           
+
+
+
+            //  IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//*[text()='Multiselect drop down']"));
+            //   multiSelectDropdown.Click();
+
+          //  IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//*[@id='selectMenuContainer']/div[7]/div/div/div/div[2]/div/svg"));
+
+            //   IWebElement option2 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5' and text()='Red']"));
+            //   option2.Click();
+          //  multiSelectDropdown.Click();
+
+            IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//div[@class=' css-1hwfws3']"));
+
             multiSelectDropdown.Click();
-           // IWebElement option1 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5']"));
-           // option1.Click();
-           // multiSelectDropdown.Click();
-            IWebElement option2 = driver.FindElement(By.XPath("//*[text()='Black']"));
+            // IWebElement option1 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5']"));
+            // option1.Click();
+            // multiSelectDropdown.Click();
+               IWebElement option2 = driver.FindElement(By.XPath("//*[text()='Black']"));
+            //IWebElement option2 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5' and text()='Red']"));
             option2.Click();
             multiSelectDropdown.Click();
+
 
             IWebElement standardMultiSelect = driver.FindElement(By.Id("cars"));
             //standardMultiSelect.Click();
@@ -80,3 +94,4 @@ namespace AutomationProject
         }
     }
 }
+ 
