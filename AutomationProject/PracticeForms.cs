@@ -89,8 +89,7 @@ namespace AutomationProject
 
             IWebElement datePickerDate = driver.FindElement(By.XPath("//div[@class='react-datepicker__day react-datepicker__day--026' and not (contains(@class, '--outside-month'))]"));
             datePickerDate.Click();
-            //SelectElement dateDropDown = new SelectElement(datePickerDate);
-            //dateDropDown.SelectByValue("26");
+            
 
 
 
