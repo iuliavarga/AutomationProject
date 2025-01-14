@@ -9,6 +9,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using static System.Collections.Specialized.BitVector32;
 using static OpenQA.Selenium.BiDi.Modules.BrowsingContext.Locator;
 
 namespace AutomationProject
@@ -29,8 +30,17 @@ namespace AutomationProject
             js.ExecuteScript("window.scrollTo(0,1000)");
 
 
+
+
             IWebElement widgetsButton = driver.FindElement(By.XPath("//h5[text()='Widgets']"));
             widgetsButton.Click();
+
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            Thread.Sleep(3000);
+
+
+
+            js.ExecuteScript("window.scrollTo(0,500)");
 
             IWebElement widgetsSelectMenuButton = driver.FindElement(By.XPath("//*[text()='Select Menu']"));
             widgetsSelectMenuButton.Click();
@@ -55,41 +65,26 @@ namespace AutomationProject
             selectValueOldStyleMenu.SelectByValue("2");
             selectOldStyleMenu.Click();
 
+            js.ExecuteScript("window.scrollTo(0,1000)");
+            Actions action = new Actions(driver);
+
+            //IWebElement multiSelectDropdown = driver.FindElement(By.ClassName("css-yk16xz-control"));
+
+            IWebElement newDropDown = driver.FindElement(By.XPath("//div[contains(@class, 'css-1hwfws3')]//div[contains(@class, 'placeholder') and text()='Select...']"));
+            newDropDown.Click();
+            action.SendKeys("Green" + Keys.Enter)
+                 .Build()
+                 .Perform();
 
 
+            //js.ExecuteScript("arguments[0].click();", multiSelectDropdown);
+            //actions.SendKeys("Green" + Keys.Enter).Build().Perform();
 
-            SelectElement multiSelectDropdown = new SelectElement(driver.FindElement(By.XPath("//*[text()='Multiselect drop down']")));
-            multiSelectDropdown.SelectByIndex(3);
             //IList<IWebElement> selectedOption = multiSelectDropdown.AllSelectedOptions;
             //foreach (IWebElement option in selectedOption)
             //{
             //    Console.WriteLine(option.Text);
             //}
-
-
-            //  IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//*[text()='Multiselect drop down']"));
-            //   multiSelectDropdown.Click();
-
-            //  IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//*[@id='selectMenuContainer']/div[7]/div/div/div/div[2]/div/svg"));
-
-            //   IWebElement option2 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5' and text()='Red']"));
-            //   option2.Click();
-            //  multiSelectDropdown.Click();
-
-            //IWebElement multiSelectDropdown = driver.FindElement(By.XPath("//div[@class=' css-1hwfws3']"));
-
-            //multiSelectDropdown.Click();
-            //// IWebElement option1 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5']"));
-            //// option1.Click();
-            //// multiSelectDropdown.Click();
-            //   IWebElement option2 = driver.FindElement(By.XPath("//*[text()='Black']"));
-            ////IWebElement option2 = driver.FindElement(By.XPath("//div[@class='css-12jo7m5' and text()='Red']"));
-            //option2.Click();
-            //multiSelectDropdown.Click();
-
-
-
-
 
             IWebElement standardMultiSelect = driver.FindElement(By.Id("cars"));
             //standardMultiSelect.Click();
