@@ -40,7 +40,7 @@ namespace AutomationProject
             driver.SwitchTo().DefaultContent();
             IWebElement frame2 = driver.FindElement(By.Id("frame2"));
             driver.SwitchTo().Frame(frame2);
-           
+
             IWebElement frameText2 = driver.FindElement(By.Id("sampleHeading"));
             Console.WriteLine($"text is:  {frameText2.Text}");
 
