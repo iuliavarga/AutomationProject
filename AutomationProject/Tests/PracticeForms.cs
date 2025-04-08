@@ -4,16 +4,19 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-namespace AutomationProject
+namespace AutomationProject.Tests
 {
-    
+
     public class PracticeForms
     {
         IWebDriver driver;
+
+        ElementMethods elementMethods;
 
         [Test]
         public void Test1()
@@ -24,14 +27,19 @@ namespace AutomationProject
             driver.Navigate().GoToUrl("https://demoqa.com/");
             driver.Manage().Window.Maximize();
 
+            elementMethods = new ElementMethods(driver);
+
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollTo(0,1000)");
 
             IWebElement formsButton = driver.FindElement(By.XPath("//div[@class='card mt-4 top-card'][2]"));
-            formsButton.Click();
+            //formsButton.Click();
+            elementMethods.ClickOnElement(formsButton);
+
 
             IWebElement elementPracticeForm = driver.FindElement(By.XPath("//*[text()='Practice Form']"));
-            elementPracticeForm.Click();
+            //elementPracticeForm.Click();
+            elementMethods.ClickOnElement(elementPracticeForm);
 
             IWebElement genderMale = driver.FindElement(By.XPath("//label[@for='gender-radio-1']"));
             IWebElement genderFemale = driver.FindElement(By.XPath("//label[@for='gender-radio-2']"));
@@ -57,28 +65,38 @@ namespace AutomationProject
             switch (gender)
             {
                 case "Male":
-                    genderMale.Click();
+                  //  genderMale.Click();
+                    elementMethods.ClickOnElement(genderMale);
                     break;
                 case "Female":
-                    genderFemale.Click();
+                   // genderFemale.Click();
+                    elementMethods.ClickOnElement(genderFemale);
                     break;
                 case "Other":
-                    genderOther.Click();
+                    //genderOther.Click();
+                    elementMethods.ClickOnElement(genderOther);
                     break;
             }
 
-            IWebElement elementSubject = driver.FindElement(By.Id("subjectsInput"));
-            elementSubject.SendKeys("English");
-            elementSubject.SendKeys(Keys.Enter);
-            elementSubject.SendKeys("C");
-            elementSubject.SendKeys(Keys.ArrowDown);
-            elementSubject.SendKeys(Keys.ArrowDown);
-            elementSubject.SendKeys(Keys.ArrowDown);
-            elementSubject.SendKeys(Keys.Enter);
+               IWebElement elementSubject = driver.FindElement(By.Id("subjectsInput"));
+            //elementSubject.SendKeys("English");
+            //elementSubject.SendKeys(Keys.Enter);
+            //elementSubject.SendKeys("C");
+            //elementSubject.SendKeys(Keys.ArrowDown);
+            //elementSubject.SendKeys(Keys.ArrowDown);
+            //elementSubject.SendKeys(Keys.ArrowDown);
+            //elementSubject.SendKeys(Keys.Enter);
 
+            elementMethods.FillElement(elementSubject, "English");
+            elementMethods.FillElement(elementSubject, Keys.Enter);
+            elementMethods.FillElement(elementSubject, "C");
+            elementMethods.FillElement(elementSubject, Keys.ArrowDown);
+            elementMethods.FillElement(elementSubject, Keys.Enter);
 
             IWebElement dateBirth = driver.FindElement(By.Id("dateOfBirthInput"));
-            dateBirth.Click();
+            //dateBirth.Click();
+           elementMethods.ClickOnElement(dateBirth);
+
             IWebElement datePickerMonth = driver.FindElement(By.XPath("//select[@class='react-datepicker__month-select']"));
             SelectElement monthDropDown = new SelectElement(datePickerMonth);
             monthDropDown.SelectByValue("2");
@@ -88,8 +106,8 @@ namespace AutomationProject
             yearDropDown.SelectByValue("1990");
 
             IWebElement datePickerDate = driver.FindElement(By.XPath("//div[@class='react-datepicker__day react-datepicker__day--026' and not (contains(@class, '--outside-month'))]"));
-            datePickerDate.Click();
-            
+           // datePickerDate.Click();
+           elementMethods.ClickOnElement(datePickerDate);
 
 
 

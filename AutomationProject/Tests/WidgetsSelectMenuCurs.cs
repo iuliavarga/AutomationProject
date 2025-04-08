@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-namespace AutomationProject
+namespace AutomationProject.Tests
 {
     public class WidgetsSelectMenuCurs
     {
 
         IWebDriver driver;
+
+        ElementMethods elementMethods;
 
         [Test]
         public void ExecSelectMenu()
@@ -22,6 +25,8 @@ namespace AutomationProject
             driver.Navigate().GoToUrl("https://demoqa.com/");
             driver.Manage().Window.Maximize();
 
+            elementMethods = new ElementMethods(driver);
+
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollTo(0,1000)");
 
@@ -30,15 +35,19 @@ namespace AutomationProject
             //widgetsButton.Click();
 
             IWebElement widgetsButton2 = driver.FindElement(By.XPath("//div[@class='card mt-4 top-card'][4]"));
-            widgetsButton2.Click();
+            //widgetsButton2.Click();
+            elementMethods.ClickOnElement(widgetsButton2);
 
             IWebElement widgetsSelectMenuButton = driver.FindElement(By.XPath("//span[text()='Select Menu']"));
-            widgetsSelectMenuButton.Click();
+            //widgetsSelectMenuButton.Click();
+            elementMethods.ClickOnElement(widgetsSelectMenuButton);
 
             IWebElement selectOldStyleMenu = driver.FindElement(By.Id("oldSelectMenu"));
-            selectOldStyleMenu.Click();
-            SelectElement selectValueOldStyleMenu = new SelectElement(selectOldStyleMenu);            
-           // selectValueOldStyleMenu.SelectByValue("2");
+            //selectOldStyleMenu.Click();
+            elementMethods.ClickOnElement(selectOldStyleMenu);
+
+            SelectElement selectValueOldStyleMenu = new SelectElement(selectOldStyleMenu);
+            // selectValueOldStyleMenu.SelectByValue("2");
             selectValueOldStyleMenu.SelectByText("Yellow");
 
 

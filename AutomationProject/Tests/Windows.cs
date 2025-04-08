@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using AutomationProject.HelperMethods;
 
-namespace AutomationProject
+namespace AutomationProject.Tests
 {
     public class Windows
     {
 
         IWebDriver driver;
+
+        ElementMethods elementMethods;
 
         [Test]
         public void ExecWindows()
@@ -21,21 +24,27 @@ namespace AutomationProject
             driver.Navigate().GoToUrl("https://demoqa.com/");
             driver.Manage().Window.Maximize();
 
+
+            elementMethods = new ElementMethods(driver);
+
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollTo(0,1000)");
 
             IWebElement alertFramesButtom = driver.FindElement(By.XPath("//div[@class='card mt-4 top-card'][3]"));
-            alertFramesButtom.Click();
+            //alertFramesButtom.Click();
+            elementMethods.ClickOnElement(alertFramesButtom);
 
             List<IWebElement> listFrames = driver.FindElements(By.XPath("//div[@class='element-list collapse show']//li[@class='btn btn-light ']")).ToList();
-            listFrames[0].Click();
+            // listFrames[0].Click();
+            elementMethods.ClickElementIList(listFrames, 0);
 
             IWebElement newtabButton = driver.FindElement(By.Id("tabButton"));
-            newtabButton.Click();
+           // newtabButton.Click();
+            elementMethods.ClickOnElement(newtabButton);
 
             List<string> tabList = new List<string>(driver.WindowHandles);
             driver.SwitchTo().Window(tabList[1]);
-            
+
             IWebElement textNewTab = driver.FindElement(By.Id("sampleHeading"));
             Console.WriteLine($"text is:  {textNewTab.Text}");
 
@@ -43,7 +52,8 @@ namespace AutomationProject
             driver.SwitchTo().Window(tabList[0]);
 
             IWebElement newWindowButton = driver.FindElement(By.Id("windowButton"));
-            newWindowButton.Click();
+            // newWindowButton.Click();
+            elementMethods.ClickOnElement(newWindowButton);
 
             List<string> windowList = new List<string>(driver.WindowHandles);
 
