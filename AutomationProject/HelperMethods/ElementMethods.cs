@@ -35,6 +35,17 @@ namespace AutomationProject.HelperMethods
         {
             element[gridNumbers].Click();
         }
-        
+
+        public void SelectElementForListByText(IList<IWebElement> elementsList, string text)
+        {
+            foreach (IWebElement element in elementsList)
+            {
+                if (element.Text == text)
+                {
+                    ClickOnElement(element);
+                }
+            }
+
+        }
     }
 }
