@@ -19,6 +19,7 @@ namespace AutomationProject.Tests
         ElementMethods elementMethods;
         HomePage homePage;
         CommonPage commonPage;
+        PracticeFormPage practiceFormPage;
 
         [Test]
         public void Test1()
@@ -33,7 +34,8 @@ namespace AutomationProject.Tests
 
             homePage = new HomePage(driver);
             commonPage = new CommonPage(driver);
-
+            practiceFormPage = new PracticeFormPage(driver);
+            
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollTo(0,1000)");
 
@@ -43,6 +45,9 @@ namespace AutomationProject.Tests
 
             homePage.ClickOnFormsPage();
             commonPage.GoToDesireMenu("Practice Form");
+            practiceFormPage.CompleteFirstRegion("j", "v", "@y.com", "0744222333", "str.C");
+            practiceFormPage.CompleteGender("Male");
+
 
 
         //    IWebElement elementPracticeForm = driver.FindElement(By.XPath("//*[text()='Practice Form']"));

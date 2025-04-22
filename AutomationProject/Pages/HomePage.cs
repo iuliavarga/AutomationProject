@@ -27,6 +27,13 @@ namespace AutomationProject.Pages
             elementMethods.ClickOnElement(formsButton);
         }
 
+        IWebElement elementsButton => driver.FindElement(By.XPath("//div[@class='card mt-4 top-card'][1]"));
+
+        public void ClickOnElemenetsPage()
+        {
+            elementMethods.ClickOnElement(elementsButton);
+        }
+
 
     }
 }
