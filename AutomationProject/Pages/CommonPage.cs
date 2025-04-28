@@ -12,7 +12,6 @@ namespace AutomationProject.Pages
     public class CommonPage
     {
         public IWebDriver driver;
-
         public ElementMethods elementMethods;
 
         public CommonPage(IWebDriver driver)

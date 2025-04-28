@@ -11,7 +11,6 @@ namespace AutomationProject.Pages
     public class HomePage
     {
         public IWebDriver driver;
-
         public ElementMethods elementMethods;
 
         public HomePage(IWebDriver driver)
@@ -28,12 +27,29 @@ namespace AutomationProject.Pages
         }
 
         IWebElement elementsButton => driver.FindElement(By.XPath("//div[@class='card mt-4 top-card'][1]"));
-
         public void ClickOnElemenetsPage()
         {
             elementMethods.ClickOnElement(elementsButton);
         }
 
+        IWebElement framesButton => driver.FindElement(By.XPath("//div[@class='card mt-4 top-card'][3]"));
 
+        public void ClickOnFramesPage()
+        {
+            elementMethods.ClickOnElement(framesButton);
+        }
+
+        IWebElement widgetsButton => driver.FindElement(By.XPath("//h5[text()='Widgets']"));
+
+        public void ClickOnWidgetPage()
+        {
+            elementMethods.ClickOnElement(widgetsButton);
+        }
+
+        IWebElement interactionsButton => driver.FindElement(By.XPath("//h5[text()='Interactions']"));
+        public void ClickOnInteractionsPage()
+        {
+            elementMethods.ClickOnElement(interactionsButton);
+        }
     }
 }
