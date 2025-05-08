@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.BasePage;
 using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace AutomationProject.Tests
 {
-    public class StructuriRepetitive
+    public class StructuriRepetitive : TestBasePage
     {
-        IWebDriver driver;
+        //IWebDriver driver;
 
         ElementMethods elementMethods;
 
         [Test]
         public void AutoComplet()
         {
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
             elementMethods = new ElementMethods(driver);
 
@@ -60,10 +60,9 @@ namespace AutomationProject.Tests
 
         public void Test2()
         {
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
             elementMethods = new ElementMethods(driver);
 
@@ -120,10 +119,9 @@ namespace AutomationProject.Tests
 
         public void Test3()
         {
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
             elementMethods = new ElementMethods(driver);
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.BasePage;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
 using OpenQA.Selenium;
@@ -13,9 +14,9 @@ using OpenQA.Selenium.Support.UI;
 namespace AutomationProject.Tests
 {
 
-    public class PracticeForms
+    public class PracticeForms : TestBasePage
     {
-        IWebDriver driver;
+        //IWebDriver driver;
         ElementMethods elementMethods;
         HomePage homePage;
         CommonPage commonPage;
@@ -25,10 +26,9 @@ namespace AutomationProject.Tests
         public void Test1()
         {
 
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
            // elementMethods = new ElementMethods(driver);
 

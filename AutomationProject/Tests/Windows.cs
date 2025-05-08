@@ -7,13 +7,14 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
+using AutomationProject.BasePage;
 
 namespace AutomationProject.Tests
 {
-    public class Windows
+    public class Windows : TestBasePage
     {
 
-        IWebDriver driver;
+        //IWebDriver driver;
         ElementMethods elementMethods;
         JavaScriptHelper javaScriptHelper;
         HomePage homePage;
@@ -24,10 +25,9 @@ namespace AutomationProject.Tests
 
         public void BrowserWindowsTest()
         {
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
             homePage = new HomePage(driver);
             commonPage = new CommonPage(driver);

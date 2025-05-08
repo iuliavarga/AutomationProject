@@ -4,15 +4,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.BasePage;
 using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace AutomationProject.Tests
 {
-    public class WidgetsAutoComplet
+    public class WidgetsAutoComplet : TestBasePage
     {
-        IWebDriver driver;
+        //IWebDriver driver;
 
         ElementMethods elementMethods;
 
@@ -25,10 +26,9 @@ namespace AutomationProject.Tests
         [Test]
         public void ExecAutoComplet()
         {
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
             elementMethods = new ElementMethods(driver);
 

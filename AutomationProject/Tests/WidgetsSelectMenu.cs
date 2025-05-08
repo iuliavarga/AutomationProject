@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.BasePage;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
 using OpenQA.Selenium;
@@ -16,9 +17,9 @@ using static OpenQA.Selenium.BiDi.Modules.BrowsingContext.Locator;
 
 namespace AutomationProject.Tests
 {
-    public class WidgetsSelectMenu
+    public class WidgetsSelectMenu : TestBasePage
     {
-        IWebDriver driver;
+        //IWebDriver driver;
         ElementMethods elementMethods;
         JavaScriptHelper javaScriptHelper;
         HomePage homePage;
@@ -29,10 +30,9 @@ namespace AutomationProject.Tests
 
         public void SelectMenuTest()
         {
-            driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://demoqa.com/");
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //driver.Navigate().GoToUrl("https://demoqa.com/");
+            //driver.Manage().Window.Maximize();
 
             homePage = new HomePage(driver);
             commonPage = new CommonPage(driver);
