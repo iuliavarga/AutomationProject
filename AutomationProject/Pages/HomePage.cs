@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace AutomationProject.Pages
 {
