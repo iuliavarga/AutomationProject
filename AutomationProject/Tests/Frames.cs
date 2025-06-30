@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
 using AutomationProject.BasePage;
+using AutomationProject.Access;
 
 namespace AutomationProject.Tests
 {
@@ -23,7 +24,10 @@ namespace AutomationProject.Tests
 
 
         [Test]
-        public void Frametest()
+        [TestCase(1)]
+        [TestCase(2)]
+
+        public void Frametest(int dataSetNumber)
         {
             //driver = new ChromeDriver();
             //driver.Navigate().GoToUrl("https://demoqa.com/");
@@ -34,14 +38,18 @@ namespace AutomationProject.Tests
             framePage = new FramePage(driver);
             javaScriptHelper = new JavaScriptHelper(driver);
 
+            var framesData = new FramesData(dataSetNumber);
+          
 
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollTo(0,1000)");
 
             homePage.ClickOnFramesPage();
             commonPage.GoToDesireMenu("Frames");
-            framePage.GetTextFromFrame1();
-            framePage.GetTextFromFrame2();
+            framePage.GetFrameText(framesData);
+
+            //framePage.GetTextFromFrame1();
+            //framePage.GetTextFromFrame2();
 
         }
 

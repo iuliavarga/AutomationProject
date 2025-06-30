@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.Access;
 using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
 
@@ -28,7 +29,7 @@ namespace AutomationProject.Pages
         public void GetTextFromFrame1()
         {
             driver.SwitchTo().Frame(frame1);          
-            Console.WriteLine(frameText.Text);
+           // Console.WriteLine(frameText.Text);
             driver.SwitchTo().DefaultContent();
             //javaScriptHelper.ScrollPageVertically(1000);
         }
@@ -44,6 +45,26 @@ namespace AutomationProject.Pages
 
             //Console.WriteLine(frameText.Text);
             //driver.SwitchTo().DefaultContent();
+        }
+
+        public void GetFrameText(FramesData framesData)
+        {
+            IWebElement frameElement = driver.FindElement(By.Id(framesData.FrameID));
+            driver.SwitchTo().Frame(frameElement);
+
+            try
+            {
+                IWebElement frameTextElement = driver.FindElement(By.Id("sampleHeading"));
+                Console.WriteLine(frameTextElement.Text);
+            }
+            catch (NoSuchElementException)
+            {
+                Console.WriteLine("Frame text element not found.");
+            }
+            finally
+            {
+                driver.SwitchTo().DefaultContent();
+            }
         }
     }
 }

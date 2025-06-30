@@ -10,6 +10,7 @@ using SeleniumExtras.WaitHelpers;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
 using AutomationProject.BasePage;
+using AutomationProject.Access;
 
 namespace AutomationProject.Tests
 {
@@ -25,6 +26,7 @@ namespace AutomationProject.Tests
 
 
         [Test]
+        
         public void AlerteTest()
         {
             //driver = new ChromeDriver();
@@ -34,8 +36,10 @@ namespace AutomationProject.Tests
             homePage = new HomePage(driver);
             commonPage = new CommonPage(driver);
             alertsFrameWindowsPage = new AlertsFrameWindowsPage(driver);
-            javaScriptHelper = new JavaScriptHelper(driver);
+            var alertData = new AlertData(1);
+            //var alertData2 = new AlertData(2);
 
+            javaScriptHelper = new JavaScriptHelper(driver);
             javaScriptHelper.ScrollPageVertically(1000);
 
             homePage.ClickOnFramesPage();
@@ -43,8 +47,11 @@ namespace AutomationProject.Tests
             alertsFrameWindowsPage.ClickOnAlertButton();
             alertsFrameWindowsPage.ClickOnTimerAlertButton();
             alertsFrameWindowsPage.ClickOnConfirmButton();
-            alertsFrameWindowsPage.ClickOnConfirmButton();
-            alertsFrameWindowsPage.ClickOnPromptButtonWithText("zzzz");
+            alertsFrameWindowsPage.ClickOnPromptButtonWithText(alertData);
+           // alertsFrameWindowsPage.ClickOnPromptButtonWithText(alertData2);
+
+            // alertsFrameWindowsPage.ClickOnPromptButton();
+            //alertsFrameWindowsPage.ClickOnPromptButtonWithText("zzzz");
 
         }
 

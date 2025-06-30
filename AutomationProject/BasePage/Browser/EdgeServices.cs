@@ -19,14 +19,12 @@ namespace AutomationProject.BasePage.Browser
             edgeoptions.AddArgument("--disable-gpu");
             edgeoptions.AddArgument("--no-sandbox");
             return edgeoptions;
-
         }
 
         public void OpenBrowser()
         {
             EdgeOptions options = (EdgeOptions)BrowserOptions();
             Driver = new EdgeDriver(options);
-
         }
     }
 }

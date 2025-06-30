@@ -10,6 +10,5 @@ namespace AutomationProject.BasePage.Browser
     {
         public const string BROWSER_CHROME = "chrome";
         public const string BROWSER_EDGE = "edge";
-
     }
 }

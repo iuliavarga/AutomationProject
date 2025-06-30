@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.Access;
 using AutomationProject.BasePage;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
@@ -39,13 +40,17 @@ namespace AutomationProject.Tests
             widgetSelectMenuPage = new WidgetSelectMenuPage(driver);
             javaScriptHelper = new JavaScriptHelper(driver);
 
-           // javaScriptHelper.ScrollPageVertically(1000);
+            var widgetsSelectMenuData = new WidgetsSelectMenuData(1);
+
+            // javaScriptHelper.ScrollPageVertically(1000);
 
             homePage.ClickOnWidgetPage();
             commonPage.GoToDesireMenu("Select Menu");
-            widgetSelectMenuPage.ClickOnSelectMenu();
-            widgetSelectMenuPage.ClickOnNewDropDown();
-            widgetSelectMenuPage.ClickOnStandardMultiSelect();
+            widgetSelectMenuPage.FillSelectMenu(widgetsSelectMenuData);
+
+            //widgetSelectMenuPage.ClickOnSelectMenu();
+            //widgetSelectMenuPage.ClickOnNewDropDown();
+            //widgetSelectMenuPage.ClickOnStandardMultiSelect();
         }
 
 

@@ -19,14 +19,12 @@ namespace AutomationProject.BasePage.Browser
             chromeoptions.AddArgument("--disable-gpu");
             chromeoptions.AddArgument("--no-sandbox");
             return chromeoptions;
-
         }
 
         public void OpenBrowser()
         {
             ChromeOptions options = (ChromeOptions)BrowserOptions();
             Driver = new ChromeDriver(options);
-
         }
     }
 }

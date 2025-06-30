@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
 using AutomationProject.BasePage;
+using AutomationProject.Access;
 
 namespace AutomationProject.Tests
 {
@@ -34,12 +35,18 @@ namespace AutomationProject.Tests
             browserWindowsPage = new BrowserWindowsPage(driver);
             javaScriptHelper = new JavaScriptHelper(driver);
 
+            var browserWindowsData = new BrowserWindowsData(1);
+            var browserWindowsData2 = new BrowserWindowsData(2);
+
             javaScriptHelper.ScrollPageVertically(1000);
 
             homePage.ClickOnFramesPage();
             commonPage.GoToDesireMenu("Browser Windows");
-            browserWindowsPage.ClickOnNewWindowButton();
-            browserWindowsPage.ClickOnNewTabButton();
+            browserWindowsPage.WindowAction(browserWindowsData);
+            browserWindowsPage.WindowAction(browserWindowsData2);
+
+            //browserWindowsPage.ClickOnNewWindowButton();
+            //browserWindowsPage.ClickOnNewTabButton();
 
         }
 

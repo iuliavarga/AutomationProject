@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.Access;
 using AutomationProject.HelperMethods;
 using OpenQA.Selenium;
 
@@ -36,7 +37,7 @@ namespace AutomationProject.Pages
             driver.SwitchTo().Window(tabList[0]);
         }
          public void ClickOnNewWindowButton()
-        {
+         {
             elementMethods.ClickOnElement(newWindowButton);
             List<string> windowList = new List<string>(driver.WindowHandles);
             driver.SwitchTo().Window(windowList[1]);
@@ -44,7 +45,25 @@ namespace AutomationProject.Pages
             Console.WriteLine($"text is:  {textNewWindow.Text}");
             driver.Close();
             driver.SwitchTo().Window(windowList[0]);
+         }
+
+        public void WindowAction(BrowserWindowsData browserWindowsData)
+        {
+            if (browserWindowsData.Type.Equals("Window" ))
+            {
+                ClickOnNewWindowButton();
+            }
+            else if (browserWindowsData.Type.Equals("Tab"))
+            {
+                ClickOnNewTabButton();
+            }
+            else
+            {
+                throw new ArgumentException("Invalid browser window action specified.");
+            }
         }
+
+        
      
 
     }

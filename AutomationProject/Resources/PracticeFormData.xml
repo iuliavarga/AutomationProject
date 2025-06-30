@@ -1,0 +1,16 @@
+﻿<PracticeFormDataSets>
+	<PracticeFormDataSet_1>
+		<firstName>V</firstName>
+		<lastName>J</lastName>
+		<userEmail>je@example.com</userEmail>
+		<userNumber>0712345678</userNumber>
+		<currentAddress>Street 1</currentAddress>
+		<gender>Male</gender>
+		<dateOfBirth>1,0,0</dateOfBirth>
+		<subjects>Maths</subjects>
+		<hobbies>Reading</hobbies>
+		<picturePath>C:\Users\ivarga\test.png</picturePath>
+		<state>NCR</state>
+		<city>Delhi</city>
+	</PracticeFormDataSet_1>
+</PracticeFormDataSets>

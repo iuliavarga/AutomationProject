@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.Access;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -40,7 +41,6 @@ namespace AutomationProject.HelperMethods
             }
             catch (ElementClickInterceptedException)
             {
-                // If normal click fails, do JavaScript click
                 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
                 js.ExecuteScript("arguments[0].click();", element);
             }
@@ -80,7 +80,32 @@ namespace AutomationProject.HelperMethods
 
         }
 
-       
+   
 
+        public DateTime FormatDate(string date)
+        {
+            var value = date.Split(',').Select(int.Parse).ToArray();
+            var day = value[0];
+            var month = value[1];
+            var year = value[2];
+
+            var currentDate = DateTime.Now;
+            var formattedDate = currentDate.AddDays(day).AddMonths(month).AddYears(year);
+
+            return formattedDate;
+
+        }
+
+        public void SelectElementByText(IWebElement element, string text)
+        {
+            SelectElement selectElement = new SelectElement(element);
+            selectElement.SelectByText(text);
+        }
+
+        public void SelectElementByValue(IWebElement element, string value)
+        {
+            SelectElement selectElement = new SelectElement(element);
+            selectElement.SelectByValue(value);
+        }
     }
 }

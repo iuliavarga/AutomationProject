@@ -1,0 +1,8 @@
+﻿<TextBoxDataSets>
+	<TextBoxDataSet_1>
+		<fullName>V</fullName>
+		<userEmail>je@example.com</userEmail>
+		<currentAddress>street 2</currentAddress>
+		<permanentAddress>Street 1</permanentAddress>
+	</TextBoxDataSet_1>
+</TextBoxDataSets>

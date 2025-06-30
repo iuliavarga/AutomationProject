@@ -12,3 +12,4 @@ namespace AutomationProject.BasePage.Browser
         object BrowserOptions();
     }
 }
+ 

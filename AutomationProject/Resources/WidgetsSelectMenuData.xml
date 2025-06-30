@@ -1,0 +1,9 @@
+﻿<WidgetsSelectMenuDataSets>
+	<WidgetsSelectMenuDataSet_1>
+		<selectValue>Group 1, option 2</selectValue>
+		<title>Mr.</title>
+		<oldStyleColor>Red</oldStyleColor>
+		<dropDownValue>Green</dropDownValue>
+		<multiSelectValue>Saab</multiSelectValue>
+	</WidgetsSelectMenuDataSet_1>
+</WidgetsSelectMenuDataSets>

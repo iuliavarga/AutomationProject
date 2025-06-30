@@ -29,20 +29,44 @@ namespace AutomationProject.Pages
             elementMethods.ClickOnElement(elementsGrid);
         }
 
-        public void SelectEvenNumbers()
+        //public void SelectEvenNumbers()
+        //{
+
+        //    for (int i = 0; i < gridNumbers.Count; i++)
+        //    {
+        //        if (i % 2 == 0)
+        //        {
+        //            elementMethods.ClickElementIList(gridNumbers, i);
+        //        }
+        //    }
+        //}
+
+        public void SelectEvenNumbersXML(string type)
         {
-          
+
             for (int i = 0; i < gridNumbers.Count; i++)
             {
-                if (i % 2 == 0)
+                bool selectable;
+                if (type.Equals("Even"))
+                {
+                    selectable = i % 2 == 0;
+                }
+                else
+                {
+                    selectable = i % 2 != 0;
+                   
+                }
+                
+                if(selectable)
                 {
                     elementMethods.ClickElementIList(gridNumbers, i);
                 }
+
             }
         }
 
 
 
-    
+
     }
 }

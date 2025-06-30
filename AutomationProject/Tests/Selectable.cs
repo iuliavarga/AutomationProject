@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationProject.Access;
 using AutomationProject.BasePage;
 using AutomationProject.HelperMethods;
 using AutomationProject.Pages;
@@ -34,7 +35,9 @@ namespace AutomationProject.Tests
             elementMethods = new ElementMethods(driver);
             javaScriptHelper = new JavaScriptHelper(driver);
             interectionsSelectablePage = new InterectionsSelectablePage(driver);
-            
+
+            var selectableData = new SelectableGridData(1);
+
             //javaScriptHelper.ScrollPageVertically(1000);
             javaScriptHelper.HideFixedBanner();
 
@@ -42,7 +45,9 @@ namespace AutomationProject.Tests
             homePage.ClickOnInteractionsPage();
             commonPage.GoToDesireMenu("Selectable");
             interectionsSelectablePage.ClickOnGrid();
-            interectionsSelectablePage.SelectEvenNumbers();
+            interectionsSelectablePage.SelectEvenNumbersXML(selectableData.Type);
+
+            // interectionsSelectablePage.SelectEvenNumbers();
         }
 
 

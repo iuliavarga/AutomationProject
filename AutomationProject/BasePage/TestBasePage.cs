@@ -20,7 +20,6 @@ namespace AutomationProject.BasePage
             driver = new BrowserFactory().GetBrowserFactory();
                    
             driver.Navigate().GoToUrl("https://demoqa.com/");
-
             //driver.Manage().Window.Maximize();
 
         }
